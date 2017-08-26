@@ -91,13 +91,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(MainActivity.this, "连接成功", Toast.LENGTH_LONG).show();
                 else if ("failed".equals(values[0]))
                     Toast.makeText(MainActivity.this, "无法建立连接", Toast.LENGTH_LONG).show();
-
-                contentTv.append("他说：" + values[0] + "\n");
+                else
+                    contentTv.append("他说：" + values[0] + "\n");
                 super.onProgressUpdate(values);
             }
         };
         asyncTask.execute();
-
     }
 
     // 向Socket服务端发送
@@ -112,6 +111,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }
